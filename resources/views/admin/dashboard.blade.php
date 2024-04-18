@@ -20,11 +20,13 @@
           </tr>
         </thead>
         <tbody>
+        @foreach($projects as $project)
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{$project->name}}</td>
+            <td><a href="{{$project->link_github}}">{{$project->link_github}}</a></td>
+            <td> <a href="" class="btn btn-outline-warning">Modifica</a> </td>
           </tr>
+        @endforeach
         </tbody>
       </table>
 </div>

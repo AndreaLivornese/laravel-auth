@@ -13,7 +13,11 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        $data = new Project();
+
+        $projects = $data->all();
+
+        return view('admin.dashboard', compact('projects'));
     }
 
     /**
