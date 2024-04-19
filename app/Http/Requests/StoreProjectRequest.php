@@ -22,7 +22,7 @@ class StoreProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>'requiered|max:50',
+            'name'=>'required|max:50',
             'username_creator'=>'required|max:20',
             'link_github'=>'required|max:300',
             'program_langs'=>'max:255',
@@ -30,7 +30,7 @@ class StoreProjectRequest extends FormRequest
         ];
     }
 
-    public function message(){
+    public function messages(){
 
         return [
             'max'=>'Non si deveno superare i :max caratteri',

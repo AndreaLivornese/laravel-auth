@@ -34,9 +34,19 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
     {
         
+        $request->all()->validate();
 
+        $data= $request->all();
 
         $newProject = new Project();
+
+        $newProject->name= $data['name'];
+        $newProject->username_creator=$data['username_creator'];
+        $newProject->link_github = $data['link_github'];
+        $newProject->program_langs=$data['program_lang'];
+        $newProject->img =$data['img'];
+
+        $newProject->save();
 
 
     }
