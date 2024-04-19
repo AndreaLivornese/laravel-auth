@@ -3,9 +3,14 @@
 
 @section('content')
 <div class="container py-5">
-    <h1>
-        {{__('Dashboard')}}
-    </h1>
+  
+    <div class="d-flex justify-content-between align-items-center">
+      <h1>
+          {{__('Dashboard')}}
+      </h1>
+
+      <a href="{{route("admin.create")}}" class="btn btn-success">Aggiungi progetto</a>
+    </div>
 
     <h2>
        <small>Lista dei progetti </small>

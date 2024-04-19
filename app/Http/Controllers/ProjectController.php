@@ -48,6 +48,8 @@ class ProjectController extends Controller
 
         $newProject->save();
 
+        return redirect()->route('admin.index');
+
 
     }
 
@@ -64,15 +66,30 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+
+        // dd($project);
+
+        return view("admin.projectEdit", compact('project'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProjectRequest $request, Project $project)
+    public function update(StoreProjectRequest $request, Project $project)
     {
-        //
+        $request->all()->validate();
+
+        $data= $request->all();
+
+        $project->name= $data['name'];
+        $project->username_creator=$data['username_creator'];
+        $project->link_github = $data['link_github'];
+        $project->program_langs=$data['program_lang'];
+        $project->img =$data['img'];
+
+        $project->save();
+
+        return redirect()->route('admin.index');
     }
 
     /**
