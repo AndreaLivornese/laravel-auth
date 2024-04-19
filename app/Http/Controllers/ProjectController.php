@@ -56,18 +56,21 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Project $project)
+    public function show($id)
     {
-        //
+        $project = Project::find($id);
+        return view('admin.specs', compact('project'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Project $project)
+    public function edit($id)
     {
 
         // dd($project);
+
+        $project = Project::find($id);
 
         return view("admin.projectEdit", compact('project'));
     }

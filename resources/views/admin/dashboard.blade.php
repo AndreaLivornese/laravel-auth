@@ -29,7 +29,7 @@
           <tr>
             <td>{{$project->name}}</td>
             <td><a href="{{$project->link_github}}">{{$project->link_github}}</a></td>
-            <td> <a href="" class="btn btn-outline-warning">Visualizza</a> </td>
+            <td> <a href="{{route("admin.show", $project->id)}}" class="btn btn-outline-warning">Visualizza</a> </td>
           </tr>
         @endforeach
         </tbody>
