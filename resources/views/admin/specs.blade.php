@@ -13,7 +13,14 @@
               <h6 class="card-title mb-4">{{$project->username_creator}}</h6>
               <p class="card-text">{{$project->program_lang}}</p>
               <p class="card-text">{{$project->link_github}}</p>
-              <a href="{{route('admin.edit', $project->id)}}" class="btn btn-primary">Modifica</a>
+            </div>
+            <div class="card-footer d-flex gap-2">
+                <a href="{{route('admin.edit', $project->id)}}" class="btn btn-primary">Modifica</a>
+                <form action="{{route('admin.destroy', $project->id)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger">Elimina</button>
+                </form>
             </div>
           </div>
     </div>

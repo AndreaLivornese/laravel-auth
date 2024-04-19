@@ -5,6 +5,7 @@
 <div class="container py-5">
     <form action="{{route('admin.store')}}" method="POST">
         @csrf
+        @method('PATCH')
         
         <div class="mb-3">
           <label for="name" class="form-label">Nome del progetto</label>
