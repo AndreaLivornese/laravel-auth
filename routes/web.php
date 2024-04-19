@@ -26,6 +26,13 @@ Route::get('/dashboard', function () {
 
 Route::resource('admin',ProjectController::class)->middleware(['auth']);
 
+// Route::middleware('auth')->group(function () {
+//     Route::get('/admin', [ProjectController::class, 'index'])->name('admin.index');
+//     Route::get('/admin', [ProjectController::class, 'edit'])->name('admin.edit');
+//     Route::patch('/admin', [ProjectController::class, 'update'])->name('admin.update');
+//     Route::delete('/admin', [ProjectController::class, 'destroy'])->name('admin.destroy');
+// });
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

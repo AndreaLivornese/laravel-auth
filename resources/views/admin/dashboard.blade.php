@@ -8,7 +8,7 @@
     </h1>
 
     <h2>
-       <small> Lista dei progetti </small>
+       <small>Lista dei progetti </small>
     </h2>
 
     <table class="table">
@@ -24,7 +24,7 @@
           <tr>
             <td>{{$project->name}}</td>
             <td><a href="{{$project->link_github}}">{{$project->link_github}}</a></td>
-            <td> <a href="" class="btn btn-outline-warning">Modifica</a> </td>
+            <td> <a href="" class="btn btn-outline-warning">Visualizza</a> </td>
           </tr>
         @endforeach
         </tbody>

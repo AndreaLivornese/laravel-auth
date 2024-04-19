@@ -25,7 +25,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.insert');
     }
 
     /**
@@ -33,7 +33,12 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        //
+        
+
+
+        $newProject = new Project();
+
+
     }
 
     /**

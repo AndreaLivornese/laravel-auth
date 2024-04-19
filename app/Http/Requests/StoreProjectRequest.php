@@ -11,7 +11,7 @@ class StoreProjectRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,20 @@ class StoreProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name'=>'requiered|max:50',
+            'username_creator'=>'required|max:20',
+            'link_github'=>'required|max:300',
+            'program_langs'=>'max:255',
+            'img'=>'max:300',
         ];
+    }
+
+    public function message(){
+
+        return [
+            'max'=>'Non si deveno superare i :max caratteri',
+            'required'=>'Campo obbligatorio',
+        ];
+
     }
 }
