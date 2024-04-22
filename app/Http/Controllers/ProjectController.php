@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+
 
 class ProjectController extends Controller
 {
@@ -34,17 +36,18 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
     {
         
-        $request->all()->validate();
-
         $data= $request->all();
 
         $newProject = new Project();
 
+        // inserimento dell'immagine nella cartella "project_img"
+        $img_path = Storage::put('project_img', $data['img']);
+        $newProject->img =$img_path;
+
         $newProject->name= $data['name'];
         $newProject->username_creator=$data['username_creator'];
         $newProject->link_github = $data['link_github'];
-        $newProject->program_langs=$data['program_lang'];
-        $newProject->img =$data['img'];
+        $newProject->program_langs=$data['program_langs'];
 
         $newProject->save();
 
@@ -80,15 +83,16 @@ class ProjectController extends Controller
      */
     public function update(StoreProjectRequest $request, Project $project)
     {
-        $request->all()->validate();
-
         $data= $request->all();
+
+        // aggiornamento dell'immagine 
+        $img_path = Storage::put('project_img', $data['img']);
+        $newProject->img =$img_path;
 
         $project->name= $data['name'];
         $project->username_creator=$data['username_creator'];
         $project->link_github = $data['link_github'];
         $project->program_langs=$data['program_lang'];
-        $project->img =$data['img'];
 
         $project->save();
 

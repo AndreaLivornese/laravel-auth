@@ -3,9 +3,9 @@
 @section('content')
 
 <div class="container py-5">
-    <form action="{{route('admin.store')}}" method="POST">
+    <form action="{{route('admin.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
-        @method('PATCH')
+        @method('PUT')
         
         <div class="mb-3">
           <label for="name" class="form-label">Nome del progetto</label>
@@ -50,7 +50,7 @@
         </div>
         <div class="mb-5">
             <label for="img" class="form-label">URL della thumb</label>
-            <input type="text" class="form-control @error('img') is-invalid @enderror" id="img" name="img" value="{{old('img') ?? $project['img']}}">
+            <input type="file" class="form-control @error('img') is-invalid @enderror" id="img" name="img" value="{{old('img') ?? $project['img']}}">
 
             @error('img')
             <div class="invalid-feedback">

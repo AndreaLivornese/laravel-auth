@@ -7,7 +7,7 @@
 
     <div class="d-flex justify-content-end">
         <div class="card" style="width: 30rem;">
-            <img src="{{$project->img}}" class="card-img-top" alt="immagine non disponibile">
+            <img src="{{asset('storage/' . $project->img)}}" class="card-img-top" alt="immagine non disponibile">
             <div class="card-body">
               <h5 class="card-title">{{$project->name}}</h5>
               <h6 class="card-title mb-4">{{$project->username_creator}}</h6>

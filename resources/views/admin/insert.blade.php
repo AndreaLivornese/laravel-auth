@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container py-5">
-    <form action="{{route('admin.store')}}" method="POST">
+    <form action="{{route('admin.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         
         <div class="mb-3">
@@ -49,7 +49,7 @@
         </div>
         <div class="mb-5">
             <label for="img" class="form-label">URL della thumb</label>
-            <input type="text" class="form-control @error('img') is-invalid @enderror" id="img" name="img" value="{{old('img')}}">
+            <input type="file" class="form-control @error('img') is-invalid @enderror" id="img" name="img" value="{{old('img')}}">
 
             @error('img')
             <div class="invalid-feedback">
