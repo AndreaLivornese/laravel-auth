@@ -24,7 +24,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
-Route::resource('admin',ProjectController::class)->middleware(['auth']);
+Route::resource('admin',ProjectController::class)->middleware(['auth', 'verified']);
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/admin', [ProjectController::class, 'index'])->name('admin.index');

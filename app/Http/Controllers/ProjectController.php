@@ -42,7 +42,7 @@ class ProjectController extends Controller
 
         // inserimento dell'immagine nella cartella "project_img"
         $img_path = Storage::put('project_img', $data['img']);
-        $newProject->img =$img_path;
+        $newProject->img = $img_path;
 
         $newProject->name= $data['name'];
         $newProject->username_creator=$data['username_creator'];
@@ -81,18 +81,25 @@ class ProjectController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(StoreProjectRequest $request, Project $project)
+    public function update(StoreProjectRequest $request,  $id)
     {
+
+        $project = Project::find($id);
+
         $data= $request->all();
 
+        // dd($data);
         // aggiornamento dell'immagine 
         $img_path = Storage::put('project_img', $data['img']);
-        $newProject->img =$img_path;
+
+        // dd($img_path);
+
+        $project->img = $img_path;
 
         $project->name= $data['name'];
         $project->username_creator=$data['username_creator'];
         $project->link_github = $data['link_github'];
-        $project->program_langs=$data['program_lang'];
+        $project->program_langs=$data['program_langs'];
 
         $project->save();
 

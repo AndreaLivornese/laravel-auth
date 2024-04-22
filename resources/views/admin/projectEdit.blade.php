@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container py-5">
-    <form action="{{route('admin.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('admin.update', $project->id ) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         
